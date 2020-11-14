@@ -1,0 +1,84 @@
+WindowManager:
+    IntroWindow:
+    MainWindow:
+    ResultsWindow:
+
+
+<IntroWindow>:
+    name: "intro"
+    user_input1: input1
+
+    GridLayout:
+        cols: 1
+
+        GridLayout:
+            cols: 2
+
+            Label: 
+                shorten: 10
+                text: '\nWhich website to search on? (OLX, Pracuj, Gumtree or All. Type "QUIT" to quit): '
+            
+            TextInput:
+                id: input1
+                multiline: False
+                on_text_validate: app.root.current = "main"
+            
+        Button:
+            text: "Submit"
+            on_release: app.root.current = "main" if input1.text in ["olx", "pracuj", "gumtree", "all"] else "intro"
+
+
+
+<MainWindow>:
+    name: "main"
+    user_input: input_res
+
+    GridLayout:
+        cols: 1
+
+        GridLayout:
+            cols: 2
+
+            Label:
+                text: '\nWhat job are you looking for? (Type "QUIT" to quit): '
+
+            TextInput:
+                id: input_res
+                multiline: False
+                on_text_validate: app.root.current = 'results'
+
+        Button:
+            text: "Submit"
+            on_release: app.root.current = 'results'
+
+        Button:
+            text: "Go back"
+            on_release: app.root.current = 'intro'
+            
+
+
+
+<ResultsWindow>:
+    name: "results"
+
+
+    # GridLayout:
+    #     cols: 1
+
+    #     # Button:
+    #     #     text: "Go back"
+    #     #     on_release: app.root.current = 'main'
+    #     # GridLayout:
+    #     #     cols: 2
+    #     #     row: 50
+
+    #     #     # Label:
+    #     #     #     text: root.results()
+        
+
+
+
+        
+
+        
+            
