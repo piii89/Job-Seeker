@@ -5,7 +5,6 @@ from modules import *
 def res_olx(user_input):
     for i in olx(user_input):
         return(' '.join(i))
-        return i
 
 
 def res_pracuj(user_input):
